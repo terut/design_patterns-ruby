@@ -55,3 +55,18 @@ http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/
 
 - 作成過程を決定するDirectorと作業インタフェースを持つBuilderを組み合わせることで、柔軟にオブジェクトを生成することができる
 
+## Factory Method
+
+追加・変更・保守を容易にしたい時に使われる。
+
+例えば、楽器工場を考えると、楽器工場の枠組み（共通部分）を持った基底クラス(InstrumentFactory)と、生成する楽器の選択を請け負うサブクラス（TrumpetFactory, SaxophoneFactory）を用意して、サブクラスにそれぞれの楽器(Trumpet, Saxophone)の生成を任せる。
+
+構成要素は以下。
+
+- ConcreteCreator: 実際にオブジェクトの生成を行う
+- Product: ConcreteFactoryによって生成されるオブジェクト
+- Creator: ConcreteFactoryの共通部分の処理を行う
+
+メリットは以下。
+
+- インスタンス(Product)の生成をサブクラスに任せて、生成部分を切り離すことで、結合度を下げて、追加・変更・保守を容易にすることができる
