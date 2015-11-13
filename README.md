@@ -14,6 +14,7 @@ http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/
 
 - 池の環境（動物と植物の組み合わせ）は2種類のみが許されている
   - アヒル(Duck)とスイレン(WaterLily)
+
   - カエル(Frog)と藻(Algae)
 
 この制約に沿った矛盾のないオブジェクト群を作成をするため、基底クラス(OrganismFactory)を継承したファクトリークラス(FrogAndAlgaeFactory, DuckAndWaterLilyFactory)を用意する。
@@ -70,3 +71,14 @@ http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/
 メリットは以下。
 
 - インスタンス(Product)の生成をサブクラスに任せて、生成部分を切り離すことで、結合度を下げて、追加・変更・保守を容易にすることができる
+
+## Singleton
+
+１つだけに限定されたインスタンスを複数のオブジェクト内で共有する場合に使われる。
+作成したクラスは唯一１つだけのインスタンスを自身で作成し、システム内のどこでもその１つだけのインスタンスにアクセスできることが前提条件。
+
+RubyだとSingletonモジュールがあってMix-inすれば良い。
+クラス変数にインスタンスを代入しておき、それを外部から参照する形で実装される。
+唯一のインスタンスの生成はマルチスレッド環境でもSingletonの前提条件を満たすようにスレッドセーフな実装をする必要があるので注意。
+
+
