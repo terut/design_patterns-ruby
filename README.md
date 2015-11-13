@@ -6,7 +6,9 @@ Note: This repository is hand-copying for learning design patterns.
 
 http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/
 
-## Abstract Factory
+## 生成に関するパターン
+
+### Abstract Factory
 
 矛盾のないオブジェクトの組み合わせを作りたい時に使われる。
 
@@ -36,7 +38,7 @@ http://morizyun.github.io/blog/ruby-design-pattern-matome-mokuzi/
 
 http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/
 
-## Builder
+### Builder
 
 オブジェクトを作り出すことが難しい時に使われる。
 大量のコードが必要であったり、生成時に必要なチェックを行いたいなら考慮すると良さそう。
@@ -56,7 +58,7 @@ http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/
 
 - 作成過程を決定するDirectorと作業インタフェースを持つBuilderを組み合わせることで、柔軟にオブジェクトを生成することができる
 
-## Factory Method
+### Factory Method
 
 追加・変更・保守を容易にしたい時に使われる。
 
@@ -72,7 +74,7 @@ http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/
 
 - インスタンス(Product)の生成をサブクラスに任せて、生成部分を切り離すことで、結合度を下げて、追加・変更・保守を容易にすることができる
 
-## Singleton
+### Singleton
 
 １つだけに限定されたインスタンスを複数のオブジェクト内で共有する場合に使われる。
 作成したクラスは唯一１つだけのインスタンスを自身で作成し、システム内のどこでもその１つだけのインスタンスにアクセスできることが前提条件。
@@ -80,5 +82,3 @@ http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/
 RubyだとSingletonモジュールがあってMix-inすれば良い。
 クラス変数にインスタンスを代入しておき、それを外部から参照する形で実装される。
 唯一のインスタンスの生成はマルチスレッド環境でもSingletonの前提条件を満たすようにスレッドセーフな実装をする必要があるので注意。
-
-
