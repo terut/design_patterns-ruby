@@ -58,6 +58,9 @@ http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/
 
 - 作成過程を決定するDirectorと作業インタフェースを持つBuilderを組み合わせることで、柔軟にオブジェクトを生成することができる
 
+
+http://morizyun.github.io/blog/ruby-design-pattern-12-builder/
+
 ### Factory Method
 
 追加・変更・保守を容易にしたい時に使われる。
@@ -74,6 +77,9 @@ http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/
 
 - インスタンス(Product)の生成をサブクラスに任せて、生成部分を切り離すことで、結合度を下げて、追加・変更・保守を容易にすることができる
 
+
+http://morizyun.github.io/blog/ruby-design-pattern-11-factory-method/
+
 ### Singleton
 
 １つだけに限定されたインスタンスを複数のオブジェクト内で共有する場合に使われる。
@@ -82,6 +88,9 @@ http://morizyun.github.io/blog/ruby-design-pattern-14-abstract-factory/
 RubyだとSingletonモジュールがあってMix-inすれば良い。
 クラス変数にインスタンスを代入しておき、それを外部から参照する形で実装される。
 唯一のインスタンスの生成はマルチスレッド環境でもSingletonの前提条件を満たすようにスレッドセーフな実装をする必要があるので注意。
+
+
+http://morizyun.github.io/blog/ruby-design-pattern-10-singleton/
 
 ## 構造に関するパターン
 
@@ -100,3 +109,29 @@ RubyだとSingletonモジュールがあってMix-inすれば良い。
 
 クラス変更でも対応できるため、問題のクラスの理解があり、かつ変更が比較的少ないならクラス変更、オブジェクトが複雑または完全な理解がないならアダプタ適用というのが、クラス変更とアダプタ適用の勘所っぽい。
 
+
+http://morizyun.github.io/blog/ruby-design-pattern-07-adapter/
+
+### Composite
+
+再帰的な構造をクラスで表現したい場合に使われる。
+「全体-部分」（個別のオブジェクトと合成したオブジェクト）を同一のものとして捉え、「全体-部分」は同じインタフェースを継承する。
+
+例えば、ディレクトリとフォルダについて考えると、ディレクトリとフォルダを同様のコンポーネントとして扱うことで、削除処理などを再帰的に行えるようにできる。
+ディレクトリの中にディレクトリ・ファイルを追加でき、一覧と削除において、同一のものとみなして処理できる（再帰的にメソッドを呼び出せる）ということ。
+
+構成要素は以下。
+
+- Component: 全てのオブジェクトの基底となるクラス
+- Leaf: プロセスの単純な構成要素、再帰しない
+- Composite: コンポーネントの一つでサブコンポーネントで構成
+
+メリットは以下。
+
+- ファイルシステムなどの木構造を伴う再帰的なデータ構造を表現出来る
+- 階層構造で表現されるオブジェクトの取り扱いを楽にする
+
+Compositeが任意の深さのツリーを作れるようにしておくことが重要。
+
+
+http://morizyun.github.io/blog/ruby-design-pattern-04-composite/
