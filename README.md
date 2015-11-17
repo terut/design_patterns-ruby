@@ -135,3 +135,33 @@ Compositeが任意の深さのツリーを作れるようにしておくこと�
 
 
 http://morizyun.github.io/blog/ruby-design-pattern-04-composite/
+
+### Decorator
+
+既存のオブジェクトに対して簡単に機能の追加したい場合に使われる。
+レイヤ状に機能を積み重ねて、必要な機能を持つオブジェクトを作れる。
+
+例えば、ファイルに行を足していくクラスを考えた場合、Decoratorとしてタイムスタンプや行番号を追加するクラスを用意し、出力を変更する。
+
+構成要素は以下。
+
+- ConcreteComponent: ベースとなる処理を持つオブジェクト
+- Decorator: 追加する機能を持つ
+
+メリットは以下。
+
+- 既存のオブジェクトの中身を変更することなく、機能を追加できる
+- 組み合わせで様々な機能を実現できる
+- 継承よりも変更の影響を限定しやすい
+
+RubyにはForwardableというクラスに対しメソッドの委譲機能を追加するモジュールがあるがあって、それを利用してWriterDecoratorをリファクタリングできる。
+委譲の方法としては`method_missing`を使う方法もある。
+
+- Forwardableモジュールを使う場合は、委譲しているメソッドを明確に表現出来る
+- `method_missing`を使う場合は、メソッドが多い場合に使いやすく、間違いにくい
+
+まずはForwardableを検討するのがよさそう。
+またDecoratorをモジュール化することで同様の機能を実現したりもできる。
+
+
+http://morizyun.github.io/blog/ruby-design-pattern-09-decorator/
