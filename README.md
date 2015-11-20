@@ -213,3 +213,16 @@ Adapter/Decorator/Proxyをここまででやったが、いずれも別のオブ
 
 - コマンドの変更・追加・削除に対して柔軟になる
 
+### Interpreter
+
+一つ一つの問題はシンプルでも、組み合わさって複雑になる様な場合に使われる。
+専用の言語を作り、その言語で得られた手順に基づいて処理を実行していく。
+
+例えば、ファイルを条件を組み合わせて検索したい場合に、条件で絞り組むクラス(TerminalExpression)を用意し、結合用のクラス(NonterminalExpression)を使って条件を組み合わせる。
+
+構成要素は以下。
+
+- AbstractExpression: 共通のインタフェースを定義
+- TerminalExpression: 終端を表現するクラス
+- NonterminalExpression: 非終端を表現するクラス
+- Context: 構文の分析を手助けする
