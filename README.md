@@ -196,6 +196,7 @@ Adapter/Decorator/Proxyをここまででやったが、いずれも別のオブ
 - Decorator: 基本的にオブジェクトにレイヤ状に機能を追加する
 - Proxy: ラップするオブジェクトと同じインタフェースを持ち、一部の機能を受け持つ
 
+http://morizyun.github.io/blog/ruby-design-pattern-08-proxy/
 
 ## 振る舞いに関するパターン
 
@@ -213,6 +214,8 @@ Adapter/Decorator/Proxyをここまででやったが、いずれも別のオブ
 
 - コマンドの変更・追加・削除に対して柔軟になる
 
+http://morizyun.github.io/blog/ruby-design-pattern-06-command/
+
 ### Interpreter
 
 一つ一つの問題はシンプルでも、組み合わさって複雑になる様な場合に使われる。
@@ -226,3 +229,25 @@ Adapter/Decorator/Proxyをここまででやったが、いずれも別のオブ
 - TerminalExpression: 終端を表現するクラス
 - NonterminalExpression: 非終端を表現するクラス
 - Context: 構文の分析を手助けする
+
+http://morizyun.github.io/blog/ruby-design-pattern-13-interpreter/
+
+### Iterator
+
+要素の集まったオブジェクト（配列など）にアクセスしたい場合や集合の要素に順にアクセスする必要がある場合に使われる。
+
+Iteratorの定義は「集約オブジェクトが元にある内部表現を公開せずに、その要素に順にアクセスする方法を提供する」とGoFではなっている。
+
+RubyのeachのようなコードブロクベースのIteratorを内部Iteratorと呼ぶ。
+今回は外部Iteratorについて考える。
+
+構成要素は以下。
+
+- Item: 個別の要素
+- Aggregate: 複数のItemを持つオブジェクト
+- Iterator: AggregateのItemにアクセスするためのクラス
+
+
+RubyにはEnumerableモジュールがあって、includeすることにより、集約オブジェクト向けの`all?`や`any?`、`include?`といった便利なメソッドを取り込める。
+
+http://morizyun.github.io/blog/ruby-design-pattern-05-iterator/
