@@ -251,3 +251,24 @@ RubyのeachのようなコードブロクベースのIteratorを内部Iterator�
 RubyにはEnumerableモジュールがあって、includeすることにより、集約オブジェクト向けの`all?`や`any?`、`include?`といった便利なメソッドを取り込める。
 
 http://morizyun.github.io/blog/ruby-design-pattern-05-iterator/
+
+### Observer
+
+Aで起きたイベントをB, Cが知る必要がある場合などに使われる。
+オブジェクトの状態が変化する可能性があり、変化したことを他のオブジェクトに通知する必要があれば、一考すると良い。
+
+構成要素は以下。
+
+- Subject: 状態が変化するオブジェクト
+- Observer: Subjectの状態の変化を関連するオブジェクトに通知するインタフェース
+- ConcreteObserver: 状態の変化に関連して具体的な処理を行う
+
+メリットは以下。
+
+- オブジェクト間の依存度を下げることができる
+- 通知先の管理をオブザーバが行うことで、サブジェクトは通知側を意識しなくて良い
+
+RubyにはObservableというモジュールがあり、Observableがオブザーバとしての機能を引き受ける。
+
+
+http://morizyun.github.io/blog/ruby-design-pattern-03-Observer/
