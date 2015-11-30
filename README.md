@@ -303,3 +303,33 @@ StrategyとObserverの違い
 - Observer: 発生しているオブジェクトに対してイベントを通知する
 - Strategy: 何らかの処理を行うためにオブジェクトを取得する
 
+http://morizyun.github.io/blog/ruby-design-pattern-02-Strategy/
+
+### Template Method
+
+2つのコードのやりたいこと（アルゴリズム）がほとんど同じである一部だけ変えたいような時に使われる。
+例としてレポートの出力フォーマットを変えるといったことが考えられる。
+
+構成要素は以下。
+
+- Abstract: 骨格としての「抽象的なベースのクラス」
+- Cocrete:  実際の処理を行うサブクラス
+
+メリットは以下。
+
+- 抽象的なベースのクラス側に「変わらない基本的なアルゴリズム」を置ける
+- 抽象的なベースのクラスは「高レベルの処理（抽象度が高い、ロジック的な、処理のフレーム）」を制御することに集中出来る
+- サブクラス側に「変化するロジック」を置ける
+- サブクラスは「詳細を埋めること」に集中出来る
+
+Template Methodの注意点として
+
+- YAGNI = You Aren't Going to Need It.（今必要なことだけ行う）を徹底する
+- 解決したい問題に絞って単純なコードを書いていくこと
+
+がある。
+
+Rubyの`initalize`などは既存をオーバーライドして初期化処理を行えるので、広義でのTemplate Methodと言える。
+
+http://morizyun.github.io/blog/ruby-design-pattern-01-template-engine/
+
